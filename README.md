@@ -24,6 +24,6 @@ I want to make a web app to use at the gym to keep track of my progress. This wa
 5. User needs to be able to review their workouts and see their progress.
 
 ### Home page tasks
-- [ ] Display some information for a user who is visiting the site for the first time.
+- [ ] Create a home page and display some information for a user who is visiting the site for the first time.
 - [ ] Make a sign in button.
 - [ ] Make the app redirect to the dashboard page if the user is already signed in or if they are signing in for the first time.
