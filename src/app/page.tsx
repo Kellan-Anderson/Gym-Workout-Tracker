@@ -1,8 +1,15 @@
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import { SignInButton } from "./_homePageComponents/signInButton";
+import { getServerAuthSession } from "~/server/auth";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
+
+  const session = await getServerAuthSession();
+  if(session) {
+    redirect("/dashboard");
+  }
 
   return (
     <main className="w-full flex justify-center items-center px-4 py-16">
