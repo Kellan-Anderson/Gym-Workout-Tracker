@@ -17,13 +17,13 @@ I want to make a web app to use at the gym to keep track of my progress. This wa
 ## Task List:
 
 ### User Stories
-1. User needs to be able to sign in to the app.
+1. ~~User needs to be able to sign in to the app.~~
 2. User needs to be able to add/edit/delete exercises.
 3. User needs to be able to add/edit/delete workouts.
 4. User needs to be able to start/finish a workout.
 5. User needs to be able to review their workouts and see their progress.
 
 ### Home page tasks
-- [ ] Create a home page and display some information for a user who is visiting the site for the first time.
-- [ ] Make a sign in button.
-- [ ] Make the app redirect to the dashboard page if the user is already signed in or if they are signing in for the first time.
+- [x] Create a home page and display some information for a user who is visiting the site for the first time.
+- [x] Make a sign in button.
+- [x] Make the app redirect to the dashboard page if the user is already signed in or if they are signing in for the first time.
