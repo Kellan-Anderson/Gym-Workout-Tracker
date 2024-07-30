@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
+import { SignInButton } from "./_homePageComponents/signInButton";
 
 export default async function Home() {
 
@@ -28,6 +29,11 @@ export default async function Home() {
             my workouts quickly from both my phone and my computer. 
           </p>
         </article>
+        <h2 className="font-semibold">Sign in to get started</h2>
+        <div className="flex flex-row gap-2 w-full" id="sign-in-buttons">
+          <SignInButton provider="Google" />
+          <SignInButton provider="Github" />
+        </div>
       </div>
     </main>
   );
