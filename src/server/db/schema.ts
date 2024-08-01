@@ -4,7 +4,6 @@ import {
   integer,
   pgTableCreator,
   primaryKey,
-  serial,
   text,
   timestamp,
   varchar,
@@ -17,28 +16,25 @@ import { type AdapterAccount } from "next-auth/adapters";
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const createTable = pgTableCreator((name) => `gym-tracker_${name}`);
+export const createTable = pgTableCreator((name) => `gym_tracker_${name}`);
 
-export const posts = createTable(
-  "post",
-  {
-    id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
-    createdById: varchar("created_by", { length: 255 })
-      .notNull()
-      .references(() => users.id),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .default(sql`CURRENT_TIMESTAMP`)
-      .notNull(),
-    updatedAt: timestamp("updated_at", { withTimezone: true }).$onUpdate(
-      () => new Date()
-    ),
-  },
-  (example) => ({
-    createdByIdIdx: index("created_by_idx").on(example.createdById),
-    nameIndex: index("name_idx").on(example.name),
+
+export const exercises = createTable("exercises", {
+  id: varchar('id', { length: 255 }).primaryKey(),
+  createdBy: varchar('created_by', { length: 255 }).notNull().references(() => users.id),
+  name: varchar('name').notNull(),
+  description: text('description'),
+  lastPerformed: timestamp('last_performed'),
+  performedCounter: integer('performed_counter').notNull().default(0),
+  createdAt: timestamp('created_at').notNull().defaultNow()
+});
+
+export const exercisesRelations = relations(exercises, ({ one }) => ({
+  user: one(users, {
+    fields: [exercises.createdBy],
+    references: [users.id]
   })
-);
+}))
 
 export const users = createTable("user", {
   id: varchar("id", { length: 255 })
@@ -56,6 +52,7 @@ export const users = createTable("user", {
 
 export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),
+  exercises: many(exercises)
 }));
 
 export const accounts = createTable(
