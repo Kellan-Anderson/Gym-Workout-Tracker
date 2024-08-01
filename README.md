@@ -1,5 +1,7 @@
 # Gym Tracker App
 
+[🔗 Check out the deployed app](https://gym-workout-tracker-pi.vercel.app/). 
+
 ## The problem
 When I go to the gym, I use Google sheets to keep track of my workouts. This works, but I have to keep updating the sheets every time I want to add a new workout. There are apps for this, but I want to try to make my own.
 
@@ -27,3 +29,18 @@ I want to make a web app to use at the gym to keep track of my progress. This wa
 - [x] Create a home page and display some information for a user who is visiting the site for the first time.
 - [x] Make a sign in button.
 - [x] Make the app redirect to the dashboard page if the user is already signed in or if they are signing in for the first time.
+
+### Exercises page tasks
+- [ ] Create a button to open a modal to add a new exercise.
+- [ ] Make a list of all the exercises that belong to the user that is sorted by date added. Exercises should have an options button, but does not have to be operational for this task.
+- [ ] Make the options button on an exercise element operational for both editing and deleting the exercise.
+- [ ] Add a search bar to the exercises page to search for an exercise by name.
+- [ ] Add a sorting selector to the exercises page to sort the exercises by name or date added.
+
+
+### Other tasks & chores
+- [x] Deploy app to vercel.
+- [x] Create task list for exercises page
+- [x] Fix typo's in issue templates
+- [x] Update the metadata in the root layout
+- [ ] Add navigation bar to the app.
