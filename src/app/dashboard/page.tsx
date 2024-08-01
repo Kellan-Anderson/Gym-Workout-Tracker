@@ -1,4 +1,4 @@
-import { SignOutButton } from "../_homePageComponents/signOutButton";
+import { SignOutButton } from "../../components/signOutButton";
 
 export default function DashboardPage() {
   return (
