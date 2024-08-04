@@ -1,4 +1,4 @@
-import { relations, sql } from "drizzle-orm";
+import { type InferSelectModel, relations, sql } from "drizzle-orm";
 import {
   index,
   integer,
@@ -26,6 +26,7 @@ export const exercises = createTable("exercises", {
   description: text('description'),
   lastPerformed: timestamp('last_performed'),
   performedCounter: integer('performed_counter').notNull().default(0),
+  personalRecord: varchar('personal_record'),
   createdAt: timestamp('created_at').notNull().defaultNow()
 });
 
@@ -125,3 +126,6 @@ export const verificationTokens = createTable(
     compoundKey: primaryKey({ columns: [vt.identifier, vt.token] }),
   })
 );
+
+
+export type exercise = InferSelectModel<typeof exercises>
